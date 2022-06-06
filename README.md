@@ -10,7 +10,7 @@
 ## 鉴权
 摸鱼派社区 API 引入了 `apiKey` 的概念，对 API 的请求不需要提供 Cookie，只需要在参数中带上申请的 `apiKey` 即可。
 
-> 注意：凡是 POST 请求，请求体必须是 JSON 格式，例如：`{ "nameOrEmail| |"","userPassword| |"" }`
+> 注意：凡是 POST 请求，请求体必须是 JSON 格式，例如：`{ "nameOrEmail":"","userPassword":"" }`
 
 ### 获取 apiKey
 
@@ -31,9 +31,9 @@
 curl --location --request POST 'https://fishpi.cn/api/getKey' \
 --header 'User-Agent: Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/69.0.3497.100 Safari/537.36' \
 --data-raw '{
- "nameOrEmail| |"username",
- "userPassword| |"e10adc3949ba59abbe56e057f20f883e",
- "mfaCode| |"123456"
+ "nameOrEmail":"username",
+ "userPassword":"e10adc3949ba59abbe56e057f20f883e",
+ "mfaCode":"123456"
 }'
 ```
 
@@ -203,7 +203,7 @@ curl --location --request POST 'https://fishpi.cn/users/names' \
 --header 'Content-Type: application/json' \
 --header 'User-Agent: Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/69.0.3497.100 Safari/537.36' \
 --data-raw '{
- "name| |"ad"
+ "name":"ad"
 }'
 ```
 
@@ -238,7 +238,7 @@ curl --location --request GET 'https://fishpi.cn/users/emotions?apiKey=oXTQTD4lj
 |code|为0则密钥有效，为-1则密钥无效|0|
 |msg|错误信息||
 |data|表情列表|`[ ... ]`|
-|- &lt;emoji name>| Key 为 emoji 代码，值为对应 emoji | "smile| |"😄" |
+|- &lt;emoji name>| Key 为 emoji 代码，值为对应 emoji | "smile":"😄" |
 
 ### 获取活跃度
 `GET /user/liveness?apiKey=<Key>`
@@ -350,7 +350,7 @@ curl --location --request POST 'https://fishpi.cn/report' \
 --header 'User-Agent: Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/69.0.3497.100 Safari/537.36' \
 --header 'Content-Type: application/json' \
 --data-raw '{
- "apiKey| |"oXTQTD4ljryXoIxa1lySgEl6aObrIhSS",
+ "apiKey":"oXTQTD4ljryXoIxa1lySgEl6aObrIhSS",
  "reportDataId":"1651126540998",
  "reportDataType":3,
  "reportType":49,
@@ -363,7 +363,7 @@ curl --location --request POST 'https://fishpi.cn/report' \
 | Key | 说明 | 示例 |
 | --- | --- | --- |
 | code | 为 0 则密钥有效，为 -1 则密钥无效 | 0 |
-| msg | 错误消息 | |
+| msg | 错误消息 ":
 
 ## 通知
 
@@ -626,7 +626,7 @@ curl --location --request GET 'https://fishpi.cn/chat-room/more?page=1&apiKey=5r
 | Key | 说明 | 示例 |
 | --- | --- | --- |
 |code|为 0 则密钥有效，为 -1 则密钥无效|0|
-|msg | 错误信息 | |
+|msg | 错误信息 ":
 | data | 消息列表| `[ ... ]` |
 |- oId| 消息 Id | 1640074796395 |
 |- time|发布时间|2021-12-21 16:19:56|
@@ -674,7 +674,7 @@ curl --location --request GET 'https://fishpi.cn/chat-room/more?page=1&apiKey=5r
 | Key | 说明 | 示例 |
 | --- | --- | --- |
 |code|为 0 则密钥有效，为 -1 则密钥无效|0|
-|msg | 错误信息 | |
+|msg | 错误信息 ":
 | data | 消息列表| `[ ... ]` |
 |- oId| 消息 Id | 1640074796395 |
 |- time|发布时间|2021-12-21 16:19:56|
@@ -726,8 +726,8 @@ curl --location --request POST 'https://fishpi.cn/chat-room/send' \
 --header 'User-Agent: Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/69.0.3497.100 Safari/537.36' \
 --header 'Content-Type: application/json' \
 --data-raw '{
- "apiKey| |"oXTQTD4ljryXoIxa1lySgEl6aObrIhSS",
- "content| |"..."
+ "apiKey":"oXTQTD4ljryXoIxa1lySgEl6aObrIhSS",
+ "content":"..."
 }'
 ```
 
@@ -753,7 +753,7 @@ curl --location --request DELETE 'https://fishpi.cn/chat-room/revoke/16400784074
 --header 'User-Agent: Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/69.0.3497.100 Safari/537.36' \
 --header 'Content-Type: application/json' \
 --data-raw '{
- "apiKey| |"oXTQTD4ljryXoIxa1lySgEl6aObrIhSS"
+ "apiKey":"oXTQTD4ljryXoIxa1lySgEl6aObrIhSS"
 }'
 ```
 
@@ -804,8 +804,8 @@ curl --location --request POST 'https://fishpi.cn/chat-room/red-packet/open' \
 --header 'User-Agent: Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/69.0.3497.100 Safari/537.36' \
 --header 'Content-Type: application/json' \
 --data-raw '{
- "apiKey| |"5r1qeYe4tDx0No9uEpXA4rK2peczjZ40",
- "oId| |"1640075201124"
+ "apiKey":"5r1qeYe4tDx0No9uEpXA4rK2peczjZ40",
+ "oId":"1640075201124"
 }'
 ```
 
@@ -876,7 +876,7 @@ curl --location --request POST 'https://fishpi.cn/api/cloud/get' \
 --data-raw '{
  "apiKey":"oXTQTD4ljryXoIxa1lySgEl6aObrIhSS",
  "gameId":"emojis",
- "data| |"[\"url1\", \"url2\"]"
+ "data":"[\"url1\", \"url2\"]"
 }'
 ```
 
@@ -934,7 +934,7 @@ curl --location --request POST 'https://fishpi.cn/upload' \
 | Key | 说明 | 示例 |
 | --- | --- | --- |
 | apiKey | 通用密钥 | oXTQTD4ljryXoIxa1lySgEl6aObrIhSS |
-| 其它参数 | 自行发帖抓包 | |
+| 其它参数 | 自行发帖抓包 ":
 
 ### 更新贴子
 
@@ -948,7 +948,7 @@ curl --location --request POST 'https://fishpi.cn/upload' \
 | --- | --- | --- |
 | id | 帖子 Id | ... |
 | apiKey | 通用密钥 | oXTQTD4ljryXoIxa1lySgEl6aObrIhSS |
-| 其它参数 | 自行发帖抓包 | |
+| 其它参数 | 自行发帖抓包 ":
 
 ### 帖子列表
 
@@ -987,12 +987,12 @@ curl --location --request POST 'https://fishpi.cn/upload' \
 | Key | 说明 | 示例 |
 | --- | --- | --- |
 | code | 为 0 则密钥有效，为 -1 则密钥无效 | 0 |
-| msg | 错误消息 | |
-| articleTitle | 文章标题 | |
-| articleTags | 文章标签 | |
-| articlePreviewContent | 文章简略文 | |
-| articleAuthor | 文章作者信息 | |
-| | 还有很多参数，不难理解，大家先自己悟，我有时间再更新 | |
+| msg | 错误消息 ":
+| articleTitle | 文章标题 ":
+| articleTags | 文章标签 ":
+| articlePreviewContent | 文章简略文 ":
+| articleAuthor | 文章作者信息 ":
+": 还有很多参数，不难理解，大家先自己悟，我有时间再更新 ":
 
 ### 获取指定帖子
 
@@ -1016,7 +1016,7 @@ curl --location --request GET 'https://fishpi.cn/api/article/1636516552191?apiKe
 | Key | 说明 | 示例 |
 | --- | --- | --- |
 | code | 为 0 则密钥有效，为 -1 则密钥无效 | 0 |
-| msg | 错误消息 | |
+| msg | 错误消息 ":
 | data | 帖子数据 | `{...}` |
 | - article | 帖子数据 | `{...}` |
 | -- articleTitleEmoj| 文章标题 |摸鱼派社区开放 API 使用文档 V2.0.0| 
@@ -1099,7 +1099,7 @@ curl --location --request GET 'https://fishpi.cn/api/article/1636516552191?apiKe
 | --- | --- | --- |
 |oId| 标签 ID | 1630652039941| 
 |tagTitle| 标签名 | 有趣| 
-|tagDescription| 标签描述 | |
+|tagDescription| 标签描述 ":
 |tagStatus| 标签状态， 0 = 正常，1 = 封禁 | 0| 
 |tagURI| 标签地址 | %e6%9c%89%e8%b6%a3| 
 |tagIconPath| icon 图地址 | `https://...`| 
@@ -1110,10 +1110,10 @@ curl --location --request GET 'https://fishpi.cn/api/article/1636516552191?apiKe
 |tagGoodCnt| 点赞数 | 0| 
 |tagLinkCount| 标签相关链接计数 | 0| 
 |tagSeoTitle| 标签 SEO 标题 | 有趣| 
-|tagSeoDesc| 标签 SEO 描述 | |
+|tagSeoDesc| 标签 SEO 描述 ":
 |tagSeoKeywords| 标签关键字 | 有趣| 
-|tagCSS| 标签自定义 CSS | | 
-|tagAd| 标签广告内容 | | 
+|tagCSS| 标签自定义 CSS ": 
+|tagAd| 标签广告内容 ": 
 |tagShowSideAd| 是否展示广告，0 = 是，1 = 否 | 0| 
 |tagRandomDouble| 标签随机数 | 0.9355077930993895| 
 
@@ -1145,7 +1145,7 @@ curl --location --request GET 'https://fishpi.cn/api/article/1636516552191?apiKe
 | sysMetal | 用户徽章 | `[...]` |
 | userTimezone | 用户时区 | Asia/Shanghai |
 | userURL | 用户个人主页 | `http://...` |
-| userIndexRedirectURL | 自定义首页跳转地址 | |
+| userIndexRedirectURL | 自定义首页跳转地址 ":
 | userLatestArticleTime | 最近发帖时间 | 1646191348504 |
 | userTagCount | 标签计数 | 0 |
 | userNickname | 昵称 | 大白菜 |
@@ -1172,7 +1172,7 @@ curl --location --request GET 'https://fishpi.cn/api/article/1636516552191?apiKe
 | userUsedPoint | 用户消费积分 | 805 |
 | userPoint | 用户积分 | 5264 |
 | userCommentCount | 用户回帖数量 | 41 |
-| userIntro | 用户个性签名 | |
+| userIntro | 用户个性签名 ":
 | userMobileSkin | 移动端主题 | mobile |
 | userListPageSize | 分页每页条目 | 60 |
 | oId | 用户 ID | 1645580042349 |
@@ -1190,13 +1190,13 @@ curl --location --request GET 'https://fishpi.cn/api/article/1636516552191?apiKe
 | --- | --- | --- |
 | commentCreateTimeStr| 评论日期 |2021-12-02 22:01:15 |
 | commentAuthorId| 评论作者 Id |1630586509670 |
-| commentUA| 评论 UA | |
+| commentUA| 评论 UA ":
 | commentScore| 评论分数 |0.549092369988321 |
 | commentCreateTime| 评论创建时间 |Thu Dec 02 22:01:15 CST 2021 |
 | commentAuthorURL| 评论作者 URL |https://my.hancel.org/about |
 | commentVote| 评论点赞数 |-1 |
 | timeAgo| 评论日期简写 |4 个月前 |
-| commentOriginalCommentId| 评论原始oId | |
+| commentOriginalCommentId| 评论原始oId ":
 | sysMetal| 徽章 |`[...]` |
 | commentGoodCnt| 点赞数 |2 |
 | commentVisible| 评论是否可见 |0 |
@@ -1217,7 +1217,7 @@ curl --location --request GET 'https://fishpi.cn/api/article/1636516552191?apiKe
 | commentBadCnt| 反对数 |0 |
 | rewarded| 是否感谢了 |false |
 | commentAuthorThumbnailURL| 评论作者头像 |`https://...` |
-| commentAudioURL| 评论音频地址 | |
+| commentAudioURL| 评论音频地址 ":
 | commentQnAOffered| 是否被采纳 |0|
 
 ## 清风明月
@@ -1247,15 +1247,15 @@ curl --location --request GET 'https://fishpi.cn/api/breezemoons?p=1&size=20' \
 | --- | --- | --- |
 |code|为0则获取成功|0|
 |breezemoons|数据列表|`[ ... ]`|
-| - breezemoonAuthorName | 发布者用户名 | |
-| - breezemoonUpdated | 最后更新时间 | |
-| - oId | 清风明月ID | |
-| - breezemoonCreated | 创建时间 | |
-| - breezemoonAuthorThumbnailURL48 | 发布者头像URL | |
-| - timeAgo | 发布时间 | |
-| - breezemoonContent | 正文 | |
-| - breezemoonCreateTime | 创建时间 | |
-| - breezemoonCity | 发布城市（可能为空，请注意做判断） | |
+| - breezemoonAuthorName | 发布者用户名 ":
+| - breezemoonUpdated | 最后更新时间 ":
+| - oId | 清风明月ID ":
+| - breezemoonCreated | 创建时间 ":
+| - breezemoonAuthorThumbnailURL48 | 发布者头像URL ":
+| - timeAgo | 发布时间 ":
+| - breezemoonContent | 正文 ":
+| - breezemoonCreateTime | 创建时间 ":
+| - breezemoonCity | 发布城市（可能为空，请注意做判断） ":
 
 ### 发布清风明月
 
@@ -1319,8 +1319,8 @@ curl --location --request POST 'https://fishpi.cn/breezemoon' \
 | Key | 说明 | 示例 |
 | --- | --- | --- |
 | code | 为 0 则成功 | 0 |
-| data: meReceived | 我未读的私信 | |
-| data: meSent | 我发送的私信 | |
+| data: meReceived | 我未读的私信 ":
+| data: meSent | 我发送的私信 ":
 
 ### 将私信标记为已读
 
@@ -1366,3 +1366,102 @@ curl --location --request POST 'https://fishpi.cn/breezemoon' \
 | Key | 说明 | 示例 |
 | --- | --- | --- |
 | apiKey | 通用密钥 | oXTQTD4ljryXoIxa1lySgEl6aObrIhSS |
+ 
+## 敏感操作
+
+### 永久注销删除用户
+
+注意！使用本接口将抹除该用户在社区中的数据（部分关联数据保留）无法恢复。
+
+该接口需要重复请求2次，第1次请求不会进行任何操作，仅进行提醒。
+
+`POST /settings/deactivate`
+
+请求：
+
+| Key | 说明 | 示例 |
+| --- | --- | --- |
+| apiKey | 通用密钥 | oXTQTD4ljryXoIxa1lySgEl6aObrIhSS |
+
+## 金手指
+
+### 注意注意注意注意注意:warning:️️️️️️
+
+金手指接口用于将摸鱼派某些敏感接口提供给第三方接入，主要用于向摸鱼派上传游戏成绩、验证用户数据、给用户颁发勋章等功能。
+
+这些接口**普通用户**无法使用！**必须有专用的密钥才可以使用**！如没有金手指使用权限，请跳过阅读此部分内容（申请金手指密钥请联系 @adlered ）。
+
+### 上传摸鱼大闯关关卡数据
+
+`POST /api/games/mofish/score`
+
+请求：
+
+| Key | 说明 | 示例 |
+| --- | --- | --- |
+| goldFingerKey | `game`类型的金手指密钥 | 省略 |
+| userName | 用户在摸鱼派的用户名 | adlered |
+| stage | 关卡数 | 10 |
+| time | 通过此关时间（毫秒级时间戳） | 1654486459786 |
+
+### 查询用户最近登录的IP地址
+
+`POST /user/query/latest-login-ip`
+
+请求：
+
+| Key | 说明 | 示例 |
+| --- | --- | --- |
+| goldFingerKey | `query`类型的金手指密钥 | 省略 |
+| userName | 用户在摸鱼派的用户名 | adlered |
+
+### 添加勋章
+
+`POST /user/edit/give-metal`
+
+请求：
+
+| Key | 说明 | 示例 |
+| --- | --- | --- |
+| goldFingerKey | `metal`类型的金手指密钥 | 省略 |
+| userName | 用户在摸鱼派的用户名 | adlered |
+| name | 勋章名称 | 测试勋章 |
+| description | 勋章描述 | XXX活动奖励勋章 |
+| attr | 勋章属性（请严格按照示例填写属性，backcolor为背景色，fontcolor为文字颜色） | url=[图标URL]&backcolor=0000ff&fontcolor=ffffff |
+| data | 勋章数据（暂时无需填写，留空即可） | 请留空 |
+
+### 移除勋章
+
+`POST /user/edit/remove-metal`
+
+请求：
+
+| Key | 说明 | 示例 |
+| --- | --- | --- |
+| goldFingerKey | `metal`类型的金手指密钥 | 省略 |
+| userName | 用户在摸鱼派的用户名 | adlered |
+| name | 勋章名称 | 测试勋章 |
+
+### 查询用户背包
+
+`POST /user/query/items`
+
+请求：
+
+| Key | 说明 | 示例 |
+| --- | --- | --- |
+| goldFingerKey | `item`类型的金手指密钥 | 省略 |
+| userName | 用户在摸鱼派的用户名 | adlered |
+
+### 调整用户背包
+
+`POST /user/edit/items`
+
+请求：
+
+| Key | 说明 | 示例 |
+| --- | --- | --- |
+| goldFingerKey | `item`类型的金手指密钥 | 省略 |
+| userName | 用户在摸鱼派的用户名 | adlered |
+| item | 物品名称 | checkin2days |
+| sum | 物品数量，填写正数（如10）则发放指定数量物品，填写负数（如-10）则从背包中扣除指定数量物品，如物品数量不足则归零 | 10 |
